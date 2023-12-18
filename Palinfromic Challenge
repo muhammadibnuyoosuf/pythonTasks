@@ -1,0 +1,45 @@
+'''Task: Neenu and Sinu's Palindromic Challenge
+
+Neenu and Sinu are good friends and coding enthusiasts. One day, they were given a challenge to analyze palindromes from a given string. Neenu loves finding the longest palindromic substring from the string, while Sinu enjoys discovering the shortest palindromic substring. They decided to work together and find the difference in the lengths of the longest and shortest palindromic substrings in the given string.
+
+Write a Python function palindrome_difference(s) that takes a string s as input and returns the absolute difference between the length of the longest palindromic substring and the length of the shortest palindromic substring.
+
+Example:
+
+python
+Copy code
+s = "abracadabra"
+result = palindrome_difference(s)
+print(result)  # Output: 8
+In this example, the longest palindromic substring is "aca" with length 3, and the shortest palindromic substring is "a" with length 1. The absolute difference is |3 - 1| = 2.
+
+Feel free to use this story as a foundation and modify it based on your preferences or specific requirements. This task encourages participants to explore different algorithms for finding palindromic substrings and practice string manipulation in Python.'''
+
+
+
+def palindrom_check(inputString):
+    palindrome=[]
+    temp_string =""
+    words =inputString.split()
+    print(words)
+    for word in words:  #aleveltest
+        for i in range(len(word)): #length of the string given O-length
+            for j in range(i,len(word)):
+                temp_string = word[i:j+1]
+                if temp_string.lower() == temp_string.lower()[::-1]:
+                    palindrome.append(temp_string)
+    longest_pal =max(palindrome,key=len)
+    short_pal = min(palindrome,key=len)
+    print(longest_pal,short_pal)
+    return len(longest_pal)-len(short_pal)
+
+
+
+
+
+
+name = "aleveltest"
+pal_list = palindrom_check(name)
+
+print(pal_list)
+
