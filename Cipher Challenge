@@ -1,0 +1,23 @@
+'''
+Task: Cipher Challenge
+
+Ava and Oliver stumbled upon an ancient cipher in their quest. 
+The encoded message is a string containing only uppercase letters. Each letter is shifted by a certain number of positions in the alphabet.
+Write a Python function decipher_message(s, shift) that takes a string s and an integer shift as input and returns the deciphered message.
+'''
+
+def deciphered_message(inputString,shift):
+    word =""
+    for characterWord in inputString:
+        if characterWord.isalpha():
+            characterWord = chr((ord(characterWord) - shift - ord('A')) % 26 + ord('A'))
+        word+=characterWord
+
+    return word
+
+
+s = "MJQQT BTWQI"
+#print(ord(s))
+shift = 5
+result = deciphered_message(s, shift)
+print(result)
