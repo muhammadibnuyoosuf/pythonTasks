@@ -1,0 +1,27 @@
+'''
+Task: Vowel Voyage
+
+Emma and Liam are explorers on a voyage. They discovered an ancient map with instructions encoded in a string.
+The instructions state that they need to find the longest substring containing only vowels. 
+Write a Python function vowel_voyage(s) that takes a string s as input and returns the longest substring consisting of only vowels.
+
+'''
+
+def count_vowels(inputString):
+    vowels = "aeiouAEIOU"
+    list_vowel = []
+    word_vowel = ''
+
+    for i in range(len(inputString)):
+        while i < len(inputString) and inputString[i] in vowels:
+            word_vowel += inputString[i]
+            i += 1
+        list_vowel.append(word_vowel)
+        word_vowel = ''
+
+    return max(list_vowel,key=len)
+
+# Example usage:
+input_string = "HelloWorldAEIOUExplorers"
+result = count_vowels(input_string)
+print(result)
