@@ -1,0 +1,26 @@
+'''
+Task: Word Wizardry
+
+Olivia and Noah are wizards with the power to rearrange words magically. They are given a string containing multiple words. 
+The wizards want to create a new string where each word is reversed, 
+but the order of words remains the same. Write a Python function word_wizardry(s) that takes a string s as input and returns a new string with reversed words
+
+'''
+
+def word_wizardry(inputString):
+    array_string = inputString.split(" ")
+    word =[]
+
+
+    for item in array_string:
+        last_char = item[-1]
+        punctuation =""
+        if last_char.isalpha() is False:
+            punctuation = last_char
+            item = item[:-1]
+        word.append(item[::-1]+punctuation)
+    return " ".join(word)
+
+s = "Hello World, I'm Magic Happens Here"
+result = word_wizardry(s)
+print(result)
